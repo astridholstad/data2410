@@ -1,4 +1,5 @@
 from socket import *
+import sys # In order to terminate the program
 
 #i will develop a server that handles one http req at a time
 #the web server should accept and parse a http req 
@@ -7,8 +8,7 @@ from socket import *
 # and then send the response directly to the client
 # if the requested file is not present in the server, the server should sendan HTTP “404 Not Found” message back to the client
 
-#def main()
-    #create a socket
+
 
 """"
 Description:
@@ -19,21 +19,36 @@ ip: holds the ip address of the server
 port: port number of the server
 Returns: true or false
 """
-#create a tcp socket with SOCK_STREAM
-	#server_sd = socket(AF_INET, SOCK_STREAM)
-    #port = 12000
-	#server_ip ='127.0.0.1'
 
 
-    #server_sd.bind((server_ip, port)) 
+serverSocket = socket(AF_INET, SOCK_STREAM)
+#Prepare a sever socket
+#Write your code here
+#End of your code
+while True:
+#Establish the connection print('Ready to serve...') connectionSocket, addr =
+    try:
+#Write your code here
+#End of your code
+    message = #Write your code here #End of your code
+    filename = message.split()[1]
+    f = open(filename[1:])
+    outputdata = #Write your code here #End of your code
+#Send one HTTP header line into socket
+#Write your code here
+#End of your code
+#Send the content of the requested file to the client
+    for i in range(0, len(outputdata)):
+    connectionSocket.send(outputdata[i].encode())
+    connectionSocket.send("\r\n".encode())
+    connectionSocket.close()
+    except IOError:
+#Send response message for file not found
+#Write your code here
+#End of your code
+#Close client socket
+#Write your code here
+#End of your code
+    serverSocket.close()
+    sys.exit()#Terminate the program after sending the corresponding data
 
-
-
-    #server_sd.close()
-
-
-
-
-
-#if __name__=='__main__':
-#	main()"
